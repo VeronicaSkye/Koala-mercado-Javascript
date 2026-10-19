@@ -46,6 +46,8 @@ Koala-Anuncio/
 ├── css/
 │   ├── style.css            # Estilos do Mercado Koala (identidade visual)
 │   └── bootstrap.min.css    # Bootstrap 5.3.3 (somente CSS, hospedado localmente)
+├── js/
+│   └── main.js              # Interatividade (JavaScript puro, sem bibliotecas)
 ├── assets/
 │   ├── img/                 # Foto da entrevista com o responsável
 │   ├── audio/               # Áudio de apresentação
@@ -164,10 +166,51 @@ gradientes lineares, `:hover` / `:focus` / `:nth-child`, `:has()`, `clamp()`, tr
 
 - O mapa da página inicial é um `iframe` do Google Maps e precisa de internet.
 - O número de WhatsApp ainda não existe e aparece como "em breve".
-- Não há campo de busca porque, sem JavaScript, ele não teria função.
+- Os formulários não enviam dados a lugar nenhum (não há back-end).
 
 ---
 assets/img/entrevista-responsavel.jpg e exibida na página paginas/sobre.html.
+
+## ⚡ Entrega 3 — JavaScript e interatividade
+
+Todo o JavaScript está em **um único arquivo**, [js/main.js](js/main.js), escrito em JavaScript puro (sem
+jQuery, sem Bootstrap JS e sem bibliotecas). Ele é carregado com `<script src="js/main.js" defer>` no fim do
+`<body>` de cada página. Cada recurso é uma função independente e só age se encontrar os elementos da página.
+
+### Recursos
+
+| Recurso | Onde | Como funciona |
+|---|---|---|
+| Menu "hambúrguer" | todas (celular) | cria o botão ☰, alterna a classe `aberto` e atualiza `aria-expanded` |
+| Selo "Aberto agora / Fechado" | todas | compara `Date` com a tabela de horários, informa quando abre e atualiza a cada minuto |
+| Voltar ao topo | todas | botão que aparece após 400 px de rolagem e usa `scrollTo({behavior: "smooth"})` |
+| Animação ao rolar | todas | `IntersectionObserver` revela cada seção; respeita `prefers-reduced-motion` |
+| Máscaras | formulários | telefone `(11) 99999-9999` e CNPJ `00.000.000/0000-00` enquanto digita |
+| CNPJ condicional | orçamento | o campo só é habilitado (e obrigatório) quando o tipo é "Pessoa jurídica" |
+| Contador de caracteres | formulários | mostra `n/máximo` e muda de cor perto do limite |
+| Validação e envio simulado | formulários | `checkValidity()`, destaca campos inválidos, foca o primeiro erro e mostra mensagem de sucesso |
+| Busca ao vivo | produtos e FAQ | filtra artigos e seções ignorando acentos e maiúsculas |
+| FAQ sanfona | FAQ | clique ou Enter/Espaço abre e fecha a resposta (`role="button"`, `aria-expanded`) |
+| Minha lista | produtos e orçamento | botão ＋ nos produtos, lista salva no `localStorage` e enviada ao campo "Produtos desejados" |
+| Dica do dia | início | muda todo dia, a partir da data |
+| Carrossel de ofertas | início | 4 slides de texto com troca automática (5 s), setas, bolinhas, teclado e toque; pausa ao passar o mouse |
+
+### Decisões
+
+- **Sem servidor:** os formulários não enviam dados de verdade. O `submit` é interceptado (`preventDefault`) e o
+  envio é simulado com uma mensagem na tela.
+- **Acessibilidade:** `aria-live`, `aria-expanded`, `role="status"/"alert"` e navegação por teclado nos recursos novos.
+- **Segurança:** o texto dos produtos é inserido com `textContent`, nunca com `innerHTML`.
+- **Robustez:** o `localStorage` é usado dentro de `try/catch` e, se estiver indisponível, o site continua funcionando.
+- **HTML quase intocado:** só foi acrescentada a tag `<script>`. Os elementos novos são criados pelo JavaScript.
+- **CSS:** os estilos dos recursos ficam no fim de [css/style.css](css/style.css).
+
+### Testes feitos
+
+Foi feito um teste simulado (jsdom) em 6 páginas, sem erros de execução, conferindo menu, selo de horário,
+busca, FAQ, lista de compras, máscaras e validação. Falta apenas conferir o visual no navegador.
+
+---
 
 ## ✅ Checklist da Entrega 1
 
