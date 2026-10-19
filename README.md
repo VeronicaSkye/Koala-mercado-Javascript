@@ -8,8 +8,8 @@ Site institucional desenvolvido como projeto escolar para a disciplina de **Dese
 
 | Nome | RGM |
 |------|----|
-| Vitor Arruda Dos Santos | 47351241 |
 | Veronica dos Santos Lima | 48489841|
+| Vitor Arruda Dos Santos | 47351241 |
 | Victor Correa | 47093102 |
 | Felipe de Oliveira Brito | 47639890 |
 
