@@ -430,6 +430,79 @@ main section:has(> article) article:hover {
   box-shadow: 0 6px 16px rgba(47, 111, 159, .18);
 }
 
+/* Acesso rápido e vitrines visuais de Açougue e Padaria */
+.atalhos-categorias {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .7rem;
+  margin-top: .5rem;
+}
+
+.atalhos-categorias a {
+  padding: .55rem 1rem;
+  color: #12384f;
+  background: var(--azul-claro);
+  border: 1px solid var(--azul-medio);
+  border-radius: 50rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: background-color .2s, transform .2s;
+}
+
+.atalhos-categorias a:hover,
+.atalhos-categorias a:focus-visible {
+  background: #dff0fa;
+  transform: translateY(-2px);
+}
+
+main section#acougue,
+main section#padaria {
+  grid-template-columns: minmax(0, 1fr);
+  scroll-margin-top: 5rem;
+}
+
+main section#acougue .cartao-departamento,
+main section#padaria .cartao-departamento {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: stretch;
+  gap: 0;
+  overflow: hidden;
+  padding: 0;
+}
+
+.imagem-departamento {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 300px;
+  object-fit: cover;
+}
+
+.conteudo-departamento {
+  padding: 1.5rem;
+}
+
+.conteudo-departamento ul {
+  margin-bottom: 0;
+}
+
+@media (max-width: 576px) {
+  main section#acougue .cartao-departamento,
+  main section#padaria .cartao-departamento {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .imagem-departamento {
+    height: 220px;
+    min-height: 0;
+  }
+
+  .conteudo-departamento {
+    padding: 1.1rem;
+  }
+}
+
 /* Rodapé em colunas com títulos */
 .rodape-col h2 {
   margin: 0 0 .6rem;
