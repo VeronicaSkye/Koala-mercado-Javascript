@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 280" role="img" aria-label="Aplicativo Koala em um celular">
+<rect x="6" y="4" width="138" height="276" rx="20" fill="#1a1d21"/>
+<rect x="14" y="22" width="122" height="240" rx="6" fill="#1f86d2"/>
+<rect x="14" y="22" width="122" height="22" fill="#1769ad"/>
+<text x="75" y="38" font-family="Arial Black,Arial" font-size="11" fill="#fff" text-anchor="middle">KOALA</text>
+<rect x="22" y="54" width="106" height="64" rx="3" fill="#ffffff" opacity=".18"/>
+<text x="75" y="82" font-family="Arial Black,Arial" font-size="12" fill="#fff" text-anchor="middle">OFERTAS</text>
+<text x="75" y="100" font-family="Arial" font-size="9" fill="#fff" text-anchor="middle">toda semana</text>
+<g font-family="Arial" font-size="9" fill="#fff">
+<rect x="22" y="128" width="106" height="24" rx="3" fill="#0f568f"/><text x="30" y="144">Lista de compras</text>
+<rect x="22" y="158" width="106" height="24" rx="3" fill="#0f568f"/><text x="30" y="174">Ofertas em destaque</text>
+<rect x="22" y="188" width="106" height="24" rx="3" fill="#0f568f"/><text x="30" y="204">Mapa das lojas</text>
+<rect x="22" y="218" width="106" height="24" rx="3" fill="#0f568f"/><text x="30" y="234">Meu cartão Koala</text></g>
+<rect x="55" y="12" width="40" height="5" rx="2.5" fill="#33383e"/>
+</svg>

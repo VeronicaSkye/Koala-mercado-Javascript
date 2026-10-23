@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lista de compras – Koala Supermercados</title>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="tokens.css">
+<link rel="stylesheet" href="css/estilos.css">
+<script src="js/data.js"></script>
+<script src="js/app.js"></script>
+</head>
+<body>
+<header id="cabecalho"></header>
+<main id="main"><div class="container">
+  <h1 class="sobre-fundo">Minha lista de compras</h1>
+  <div class="chips" role="group" aria-label="Modelos de lista">
+    <span class="sobre-fundo" style="align-self:center">Começar por um modelo:</span>
+    <button class="chip" type="button" data-modelo="dia-a-dia">Dia-a-Dia</button>
+    <button class="chip" type="button" data-modelo="churrasco">Churrasco</button>
+    <button class="chip" type="button" data-modelo="festa">Festa</button>
+  </div>
+  <div class="lista-layout">
+    <div class="painel">
+      <form class="form-add" id="add" novalidate>
+        <div class="campo"><label for="nome">Adicionar item</label>
+          <input id="nome" autocomplete="off" placeholder="Ex.: café, arroz, sabão" aria-describedby="nome-erro"></div>
+        <div class="campo"><label for="qtd">Qtd.</label><input id="qtd" type="number" min="1" max="99" value="1"></div>
+        <button class="botao" type="submit">Adicionar</button>
+      </form>
+      <div class="campo__erro" id="nome-erro" hidden>Digite o nome do item.</div>
+      <ul class="itens" id="itens"></ul>
+      <div class="vazio" id="vazio" hidden><h2>Sua lista está vazia</h2>
+        <p>Adicione itens acima, use um modelo ou escolha produtos no catálogo.</p><a class="botao" href="index.html">Ver produtos</a></div>
+    </div>
+
+    <aside class="painel resumo" aria-label="Resumo">
+      <h2>Resumo</h2>
+      <div class="progresso" role="progressbar" aria-label="Itens marcados" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><i id="barra"></i></div>
+      <dl>
+        <dt>Itens</dt><dd id="r-itens">0</dd>
+        <dt>Já no carrinho</dt><dd id="r-feitos">0</dd>
+        <dt>Total estimado</dt><dd class="total" id="r-total">R$ 0,00</dd>
+      </dl>
+      <p class="campo__ajuda">O total soma apenas produtos do catálogo. Itens livres não têm preço.</p>
+      <div class="acoes">
+        <button class="botao botao--sec" id="copiar" type="button">Copiar lista</button>
+        <button class="botao botao--sec" id="imprimir" type="button">Imprimir</button>
+        <button class="botao botao--sec" id="limpar-feitos" type="button">Remover marcados</button>
+        <button class="botao botao--sec" id="limpar-tudo" type="button">Limpar tudo</button>
+      </div>
+      <h3 style="margin-top: var(--espaco-6)">Que tal incluir?</h3>
+      <div class="acoes" id="sugestoes"></div>
+    </aside>
+  </div>
+</div></main>
+<footer id="rodape"></footer>
+<script>
+(() => {
+  const { $, brl, List, toast } = Koala;
+  const prod = id => PRODUCTS.find(p => p.id === id);
+  const rotulo = it => it.custom ? it.name : prod(it.id).name;
+
+  function render() {
+    const itens = List.all(), ul = $("#itens");
+    ul.innerHTML = "";
+    itens.forEach(it => {
+      const p = it.custom ? null : prod(it.id);
+      const li = document.createElement("li");
+      li.className = "item" + (it.done ? " item--feito" : "");
+      li.innerHTML = `<input type="checkbox" aria-label="Marcar item" ${it.done ? "checked" : ""}>
+        <span class="nome"><span class="n"></span> <small>${p ? p.unit : ""}</small></span>
+        <span class="qtd"><button type="button" aria-label="Diminuir">−</button><output>${it.qty}</output><button type="button" aria-label="Aumentar">+</button></span>
+        <span class="subtotal">${p ? brl(p.price * it.qty) : "—"}</span>
+        <button class="botao botao--sec" type="button" aria-label="Remover item">Remover</button>`;
+      $(".n", li).textContent = rotulo(it);
+      const chk = li.querySelector("input");
+      const [menos, mais] = li.querySelectorAll(".qtd button");
+      const alterar = fn => { const todos = List.all(); fn(todos.find(i => i.id === it.id)); List.save(todos); };
+      chk.addEventListener("change", () => alterar(x => x.done = chk.checked));
+      menos.addEventListener("click", () => alterar(x => x.qty = Math.max(1, x.qty - 1)));
+      mais.addEventListener("click", () => alterar(x => x.qty = Math.min(99, x.qty + 1)));
+      li.querySelector(".botao").addEventListener("click", () => List.save(List.all().filter(i => i.id !== it.id)));
+      ul.appendChild(li);
+    });
+    $("#vazio").hidden = itens.length > 0;
+    const total = itens.reduce((s, i) => s + (i.custom ? 0 : prod(i.id).price * i.qty), 0);
+    const feitos = itens.filter(i => i.done).length;
+    $("#r-itens").textContent = itens.length;
+    $("#r-feitos").textContent = feitos + " de " + itens.length;
+    $("#r-total").textContent = brl(total);
+    const pct = itens.length ? Math.round(feitos / itens.length * 100) : 0;
+    $("#barra").style.width = pct + "%";
+    $(".progresso").setAttribute("aria-valuenow", pct);
+    ["copiar", "imprimir", "limpar-feitos", "limpar-tudo"].forEach(id => $("#" + id).disabled = !itens.length);
+
+    const ja = new Set(itens.map(i => i.id));
+    $("#sugestoes").innerHTML = "";
+    PRODUCTS.filter(p => !ja.has(p.id)).slice(0, 6).forEach(p => {
+      const b = document.createElement("button");
+      b.type = "button"; b.className = "botao botao--sec"; b.textContent = "+ " + p.name;
+      b.addEventListener("click", () => List.add(p.id));
+      $("#sugestoes").appendChild(b);
+    });
+  }
+
+  function aplicarModelo(nome) {
+    const nomes = MODELOS[nome]; if (!nomes) return;
+    nomes.forEach(n => { const p = PRODUCTS.find(p => p.name === n); if (p) List.add(p.id); });
+    toast("Modelo " + nome + " adicionado");
+  }
+  document.querySelectorAll("[data-modelo]").forEach(b => b.addEventListener("click", () => aplicarModelo(b.dataset.modelo)));
+  const m = new URLSearchParams(location.search).get("modelo");
+  if (m && MODELOS[m]) { aplicarModelo(m); history.replaceState(null, "", "lista.html"); }
+
+  $("#add").addEventListener("submit", e => {
+    e.preventDefault();
+    const nome = $("#nome"), v = nome.value.trim();
+    nome.setAttribute("aria-invalid", !v);
+    $("#nome-erro").hidden = !!v;
+    if (!v) { nome.focus(); return; }
+    List.addCustom(v, Math.min(99, Math.max(1, parseInt($("#qtd").value) || 1)));
+    nome.value = ""; $("#qtd").value = 1; nome.focus();
+  });
+  $("#limpar-feitos").addEventListener("click", () => List.save(List.all().filter(i => !i.done)));
+  $("#limpar-tudo").addEventListener("click", () => { if (confirm("Remover todos os itens da lista?")) List.save([]); });
+  $("#imprimir").addEventListener("click", () => window.print());
+  $("#copiar").addEventListener("click", async () => {
+    const txt = List.all().map(i => `${i.done ? "[x]" : "[ ]"} ${i.qty}x ${rotulo(i)}`).join("\n");
+    try { await navigator.clipboard.writeText(txt); toast("Lista copiada!"); } catch { toast("Não foi possível copiar."); }
+  });
+  document.addEventListener("koala:lista", render);
+  render();
+})();
+</script>
+</body>
+</html>

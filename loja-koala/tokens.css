@@ -1,0 +1,97 @@
+/* tokens.css — fonte única de cores, espaços, raios e tipografia da Koala.
+   Nenhum outro arquivo CSS ou HTML pode ter cor hexadecimal. */
+:root, [data-tema="claro"] {
+  /* cores */
+  --cor-fundo: #5ab8ee;
+  --cor-texto: #0d2b45;
+  --cor-texto-fundo: #08304f;
+  --cor-primaria: #1769ad;
+  --cor-primaria-hover: #0f568f;
+  --cor-sobre-primaria: #ffffff;
+  --cor-acento: #d93a25;
+  --cor-sobre-acento: #ffffff;
+  --cor-superficie: #ffffff;
+  --cor-superficie-2: #eaf6fe;
+  --cor-mudo: #4a667f;
+  --cor-borda: #b5dbf3;
+  --cor-card: #1f86d2;
+  --cor-card-hover: #1773bb;
+  --cor-sobre-card: #ffffff;
+  --cor-cabecalho: #3aa3e6;
+  --cor-cabecalho-listra: #4db1ee;
+  --cor-nav: #8fd3fa;
+  --cor-nav-hover: #b9e6ff;
+  --cor-nav-texto: #08304f;
+  --cor-logo-1: #e3f4ff;
+  --cor-logo-2: #8fd3fa;
+  --cor-logo-3: #5ab8ee;
+  --cor-rodape: #1b73b3;
+  --cor-rodape-base: #0f5489;
+  --cor-rodape-texto: #ffffff;
+  --cor-rodape-destaque: #ffd54a;
+  --cor-preto: #111111;
+  --cor-foco: #ffb81c;
+  --cor-erro: #b3261e;
+  --cor-erro-fundo: #fdecea;
+  --cor-sucesso: #1b6e2a;
+  --cor-sucesso-fundo: #e6f5e9;
+  --cor-desab-fundo: #d5dde4;
+  --cor-desab-texto: #66727e;
+  --cor-toast: #0d2b45;
+  --cor-sombra: rgba(0, 60, 120, .22);
+
+  /* espaços (escala 4px) */
+  --espaco-1: 4px;
+  --espaco-2: 8px;
+  --espaco-3: 12px;
+  --espaco-4: 16px;
+  --espaco-6: 24px;
+  --espaco-10: 40px;
+  --espaco-16: 64px;
+
+  /* raio: quase reto, identidade do mercado (não arredondado de template) */
+  --raio: 2px;
+
+  /* tipografia: escala 1.25 */
+  --fonte-familia: "Barlow Condensed", "Arial Narrow", Arial, sans-serif;
+  --fonte-base: 1.125rem;
+  --fonte-sm: 0.9rem;
+  --fonte-md: 1.4rem;
+  --fonte-lg: 1.75rem;
+  --fonte-xl: 2.2rem;
+  --fonte-2xl: 2.75rem;
+}
+
+[data-tema="escuro"] {
+  --cor-fundo: #0b1f33;
+  --cor-texto: #e8f4ff;
+  --cor-texto-fundo: #e8f4ff;
+  --cor-primaria: #5fb6f0;
+  --cor-primaria-hover: #8ccbf6;
+  --cor-sobre-primaria: #06233a;
+  --cor-acento: #ff6a52;
+  --cor-sobre-acento: #1a0a07;
+  --cor-superficie: #12304a;
+  --cor-superficie-2: #0f2740;
+  --cor-mudo: #9bb7cf;
+  --cor-borda: #25506f;
+  --cor-card: #1668a8;
+  --cor-card-hover: #1b7bc4;
+  --cor-cabecalho: #0f3a5f;
+  --cor-cabecalho-listra: #124670;
+  --cor-nav: #1c5584;
+  --cor-nav-hover: #26679e;
+  --cor-nav-texto: #e8f4ff;
+  --cor-logo-1: #2a6a9c;
+  --cor-logo-2: #194e78;
+  --cor-logo-3: #0f3a5f;
+  --cor-rodape: #0f3a5f;
+  --cor-rodape-base: #0a2a46;
+  --cor-erro: #ff8a80;
+  --cor-erro-fundo: #3a1a1a;
+  --cor-sucesso: #7fd48d;
+  --cor-sucesso-fundo: #153322;
+  --cor-desab-fundo: #25384a;
+  --cor-desab-texto: #7d92a5;
+  --cor-sombra: rgba(0, 0, 0, .5);
+}

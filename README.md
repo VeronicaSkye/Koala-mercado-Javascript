@@ -62,7 +62,7 @@ exibido nesta árvore resumida para manter a documentação mais limpa.
 
 ## 🔗 Link do Site Hospedado
 
-O site será publicado em: **https://veronicaskye.github.io/Koala-mercado/**
+O site é publicado em: **https://veronisky.github.io/Koala-mercado-Javascript/**
 
 O deploy está configurado para ocorrer automaticamente a cada atualização da branch `main`.
 Para ativar pela primeira vez, acesse **Settings > Pages** no GitHub e selecione **GitHub Actions** como fonte de publicação.
@@ -211,9 +211,36 @@ busca, FAQ, lista de compras, máscaras e validação. Falta apenas conferir o v
 
 ---
 
-## 🛒 Loja Koala (projeto com tokens.css, AGENTS.md e catálogo de componentes)
+## 🛒 Loja Koala — como o produto ficou
 
-Uma versão em formato de loja virtual, inspirada no layout do Supermercados Guanabara, fica na pasta [loja-koala/](loja-koala/). Ela tem lista de compras funcional, tema escuro, página de catálogo de componentes e fotos reais. Veja as explicações e os prints em [loja-koala/README.md](loja-koala/README.md).
+Uma versão em formato de loja virtual, inspirada no layout do Supermercados Guanabara, fica na pasta [loja-koala/](loja-koala/).
+Ela tem lista de compras funcional, tema escuro, página de catálogo de componentes (`tokens.css` e `AGENTS.md`) e fotos reais.
+Explicação completa em [loja-koala/README.md](loja-koala/README.md).
+
+**Endereço do site hospedado:** https://veronisky.github.io/Koala-mercado-Javascript/loja-koala/
+
+> Se o link ainda não abrir, o site pode ser visto localmente: baixe o projeto e abra `loja-koala/index.html` no navegador.
+> Os prints abaixo mostram como o produto ficou.
+
+### Página inicial (aba de produtos)
+14 categorias com foto real, ofertas do dia com cronômetro, dicas e rodapé com "Baixe nosso aplicativo".
+
+![Página inicial da loja Koala](loja-koala/docs/prints/01-inicio.png)
+
+### Lista de compras
+Adicionar itens, mudar quantidade, marcar o que já pegou, ver o total e usar modelos (Dia-a-Dia, Churrasco, Festa). A lista fica salva no navegador.
+
+![Lista de compras](loja-koala/docs/prints/02-lista-de-compras.png)
+
+### Catálogo de componentes
+Todos os componentes em todos os estados (normal, hover, foco, desabilitado e erro), nos temas claro e escuro.
+
+![Catálogo de componentes](loja-koala/docs/prints/03-catalogo-de-componentes.png)
+
+### Versão para celular (360 px)
+No celular as categorias viram uma coluna e o menu vira um botão "Menu".
+
+![Versão para celular](loja-koala/docs/prints/04-celular-360px.png)
 
 ---
 
