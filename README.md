@@ -211,6 +211,12 @@ busca, FAQ, lista de compras, máscaras e validação. Falta apenas conferir o v
 
 ---
 
+## 🛒 Loja Koala (projeto com tokens.css, AGENTS.md e catálogo de componentes)
+
+Uma versão em formato de loja virtual, inspirada no layout do Supermercados Guanabara, fica na pasta [loja-koala/](loja-koala/). Ela tem lista de compras funcional, tema escuro, página de catálogo de componentes e fotos reais. Veja as explicações e os prints em [loja-koala/README.md](loja-koala/README.md).
+
+---
+
 ## ✅ Checklist da Entrega 1
 
 - [x] 10 páginas HTML interligadas (index, contato, orçamento + 7 de conteúdo)
