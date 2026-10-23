@@ -60,6 +60,28 @@ exibido nesta árvore resumida para manter a documentação mais limpa.
 
 ---
 
+## 📸 Prints do site
+
+Capturas reais do site rodando (versão para computador em 1280 px e versão para celular em 360 px).
+
+### Página inicial
+Cabeçalho com o selo "Aberto agora", menu de departamentos, carrossel de ofertas, faixa de benefícios, dica do dia e destaques da semana.
+
+![Página inicial](assets/prints/01-pagina-inicial.png)
+
+### Produtos & Serviços
+![Página de produtos](assets/prints/02-produtos.png)
+
+### Orçamento (formulário com validação e máscaras)
+![Página de orçamento](assets/prints/03-orcamento.png)
+
+### Versão para celular
+O menu vira um botão "☰ Menu" e os blocos ficam em uma coluna.
+
+![Versão para celular](assets/prints/04-celular.png)
+
+---
+
 ## 🔗 Link do Site Hospedado
 
 O site é publicado em: **https://veronisky.github.io/Koala-mercado-Javascript/**
