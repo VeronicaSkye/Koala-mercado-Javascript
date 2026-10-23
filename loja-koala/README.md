@@ -48,6 +48,12 @@ O site é responsivo. No celular as categorias viram uma coluna e o menu vira um
 
 ![Versão para celular](docs/prints/04-celular-360px.png)
 
+### 5. Produtos de uma categoria
+![Produtos do açougue](docs/prints/05-produtos-acougue.png)
+
+### 6. Tema escuro
+![Tema escuro](docs/prints/06-tema-escuro.png)
+
 ---
 
 ## O que cada página faz

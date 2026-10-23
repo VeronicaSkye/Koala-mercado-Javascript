@@ -15,6 +15,46 @@ Site institucional desenvolvido como projeto escolar para a disciplina de **Dese
 
 ---
 
+## 🛒 SITE NOVO — Loja Koala (prints)
+
+Fizemos um site novo em formato de **loja virtual**, na pasta [loja-koala/](loja-koala/), inspirado no layout do Supermercados Guanabara, com a marca Koala em azul claro.
+Ele tem lista de compras funcional, tema claro e escuro, página de catálogo de componentes (`tokens.css` e `AGENTS.md`) e **fotos reais**.
+Explicação completa: [loja-koala/README.md](loja-koala/README.md).
+
+**Como abrir:** baixe o projeto e abra `loja-koala/index.html` no navegador. Endereço hospedado (quando o GitHub Pages estiver ativo): https://veronisky.github.io/Koala-mercado-Javascript/loja-koala/
+
+### 1. Página inicial (aba de produtos)
+14 categorias com foto real, ofertas do dia com cronômetro, dicas, faixa da loja e rodapé "Baixe nosso aplicativo".
+
+![Página inicial da loja Koala](loja-koala/docs/prints/01-inicio.png)
+
+### 2. Produtos de uma categoria
+Busca, filtro por categoria, ordenação e botão "Adicionar à lista".
+
+![Produtos do açougue](loja-koala/docs/prints/05-produtos-acougue.png)
+
+### 3. Lista de compras
+Adicionar itens, mudar a quantidade, marcar o que já pegou, ver o total e usar modelos (Dia-a-Dia, Churrasco, Festa). Fica salva no navegador.
+
+![Lista de compras](loja-koala/docs/prints/02-lista-de-compras.png)
+
+### 4. Tema escuro
+O botão "Tema escuro" troca as cores. O site lembra a escolha.
+
+![Tema escuro](loja-koala/docs/prints/06-tema-escuro.png)
+
+### 5. Catálogo de componentes
+Botões, campos, cards e avisos em todos os estados (normal, hover, foco, desabilitado e erro), nos temas claro e escuro.
+
+![Catálogo de componentes](loja-koala/docs/prints/03-catalogo-de-componentes.png)
+
+### 6. Versão para celular (360 px)
+As categorias viram uma coluna e o menu vira um botão "Menu".
+
+![Versão para celular](loja-koala/docs/prints/04-celular-360px.png)
+
+---
+
 ## 🏪 Introdução — A Organização
 
 O **Mercado Koala** é um mercado de bairro localizado na:
@@ -233,36 +273,9 @@ busca, FAQ, lista de compras, máscaras e validação. Falta apenas conferir o v
 
 ---
 
-## 🛒 Loja Koala — como o produto ficou
+## 🛒 Loja Koala (site novo)
 
-Uma versão em formato de loja virtual, inspirada no layout do Supermercados Guanabara, fica na pasta [loja-koala/](loja-koala/).
-Ela tem lista de compras funcional, tema escuro, página de catálogo de componentes (`tokens.css` e `AGENTS.md`) e fotos reais.
-Explicação completa em [loja-koala/README.md](loja-koala/README.md).
-
-**Endereço do site hospedado:** https://veronisky.github.io/Koala-mercado-Javascript/loja-koala/
-
-> Se o link ainda não abrir, o site pode ser visto localmente: baixe o projeto e abra `loja-koala/index.html` no navegador.
-> Os prints abaixo mostram como o produto ficou.
-
-### Página inicial (aba de produtos)
-14 categorias com foto real, ofertas do dia com cronômetro, dicas e rodapé com "Baixe nosso aplicativo".
-
-![Página inicial da loja Koala](loja-koala/docs/prints/01-inicio.png)
-
-### Lista de compras
-Adicionar itens, mudar quantidade, marcar o que já pegou, ver o total e usar modelos (Dia-a-Dia, Churrasco, Festa). A lista fica salva no navegador.
-
-![Lista de compras](loja-koala/docs/prints/02-lista-de-compras.png)
-
-### Catálogo de componentes
-Todos os componentes em todos os estados (normal, hover, foco, desabilitado e erro), nos temas claro e escuro.
-
-![Catálogo de componentes](loja-koala/docs/prints/03-catalogo-de-componentes.png)
-
-### Versão para celular (360 px)
-No celular as categorias viram uma coluna e o menu vira um botão "Menu".
-
-![Versão para celular](loja-koala/docs/prints/04-celular-360px.png)
+Os prints e a explicação do site novo estão no começo deste README e em [loja-koala/README.md](loja-koala/README.md).
 
 ---
 
